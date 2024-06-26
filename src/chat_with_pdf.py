@@ -27,8 +27,8 @@ def app():
     st.session_state['API_KEY'] =  os.getenv("OPENAI_API_KEY")
 
     # st.set_page_config(page_title="Cicero - Assistente Documental da PCA", page_icon=":robot_face:")
-    st.header("Faça o upload dos documentos pdf 📄")
-    pdfs_uploaded = st.file_uploader("Carregue os seus PDFs aqui e clica em 'Processar'", accept_multiple_files=True, type=["pdf"])
+    st.header("Faça o upload do documento pdf 📄")
+    pdfs_uploaded = st.file_uploader("Carregue o PDFs aqui e clica em 'Processar'", accept_multiple_files=True, type=["pdf"])
     btn_upload = st.button("Processar")
 
     if btn_upload:

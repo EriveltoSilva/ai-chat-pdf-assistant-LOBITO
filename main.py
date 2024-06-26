@@ -1,10 +1,8 @@
 import streamlit as st
-# from src import accounts
-# from src import chat_with_csv
 from src import chat_with_pdf
 from streamlit_option_menu import option_menu
 
-st.set_page_config(page_title="LOBITO")
+st.set_page_config(page_title="LOBITO(+_+)")
 
 class MultiApp:
     def __init__(self) -> None:
@@ -30,11 +28,7 @@ class MultiApp:
             )
             st.image('./images/logo-main.png')
 
-        # if app=='Conta':
-            # accounts.app()
         if app=='Conversar com pdf':
             chat_with_pdf.app()
-        # elif app=='Conversar com CSV':
-        #     chat_with_csv.app()
 
     run()
