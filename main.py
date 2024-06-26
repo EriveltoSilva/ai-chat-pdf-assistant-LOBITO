@@ -14,7 +14,7 @@ class MultiApp:
     def run():
         with st.sidebar:
             app = option_menu(
-                menu_title="Menu AngoBank",
+                menu_title="AngolaBank",
                 # menu_icon='chat-text-fill',
                 options=['Conversar com pdf', ],
                 icons=['house-fill', 'person-circle'],

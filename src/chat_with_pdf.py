@@ -26,8 +26,8 @@ def app():
         st.session_state['is_ready'] =False
     st.session_state['API_KEY'] =  os.getenv("OPENAI_API_KEY")
 
-    # st.set_page_config(page_title="Cicero - Assistente Documental da PCA", page_icon=":robot_face:")
-    st.header("Faça o upload do documento pdf 📄")
+    # st.set_page_config(page_title="LOBITO - Assistente Documental do AngolaBank", page_icon=":robot_face:")
+    st.header("LOBITO - O Assistente Documental Bancário da Sua Confiança 📄")
     pdfs_uploaded = st.file_uploader("Carregue o PDFs aqui e clica em 'Processar'", accept_multiple_files=True, type=["pdf"])
     btn_upload = st.button("Processar")
 
@@ -36,24 +36,29 @@ def app():
             st.session_state['unique_id'] = uuid.uuid4().hex
             # get pdf text
             docs = create_docs(pdfs_uploaded, st.session_state['unique_id'] )
-            st.success("Documentos carregados✅")
+            # st.success("Documentos carregados✅")
+            st.success("Processando:1 de 5✅")
 
             # get the text chunks
             chunks = split_docs(docs)
-            st.success("Chunks criados✅")
+            # st.success("Chunks criados✅")
+            st.success("Processando:2 de 5✅")
 
             # embeddings
             embeddings = get_embeddings(st.session_state['API_KEY'])
-            st.success("Embedding criados✅")
+            # st.success("Embedding criados✅")
+            st.success("Processando:3 de 5✅")
             
             # create vectorstore
             db = get_vectorstore(chunks, embeddings)
             st.session_state['db'] = db
-            st.success("Vector Store criado✅")
+            # st.success("Vector Store criado✅")
+            st.success("Processando:4 de 5✅")
             
             # create conversation chain
             st.session_state['chain'] = get_chain(st.session_state['API_KEY'])
-            st.success("Chain criado✅")
+            # st.success("Chain criado✅")
+            st.success("Terminado Processamento:5 de 5✅")
 
             st.session_state['is_ready']= True
 
@@ -81,4 +86,3 @@ def app():
                                 with st.chat_message("assistant"):
                                     st.write(st.session_state['chat_history'][i])
             
-        
